@@ -1,8 +1,7 @@
-import {Cereal} from "../types/Cereal.ts";
 import useFetchCereals from "../hooks/CerealHooks.ts";
 
 const CerealList = () => {
-    const cereals: Cereal[] = useFetchCereals()
+    const {data} = useFetchCereals()
 
     return (
         <div>
@@ -32,7 +31,7 @@ const CerealList = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {cereals.map((cereal) => (
+                {data && data.map((cereal) => (
                     <tr key={cereal.name}>
                         <td>{cereal.name}</td>
                         <td>{cereal.manufacturer}</td>
