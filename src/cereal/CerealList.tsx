@@ -1,7 +1,11 @@
 import useFetchCereals from "../hooks/CerealHooks.ts";
+import ApiStatus from "../apiStatus.tsx";
 
 const CerealList = () => {
-    const {data} = useFetchCereals()
+    const {data, status, isSuccess} = useFetchCereals()
+
+    if (!isSuccess)
+        return <ApiStatus status={status}/>
 
     return (
         <div>

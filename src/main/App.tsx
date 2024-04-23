@@ -5,7 +5,7 @@ import CerealList from "../cereal/CerealList.tsx";
 function App() {
     return (
         <div className={'container'}>
-            <Header subtitle={'C# Cereal api with Vite + React'}/>
+            <Header subtitle={'C# Cereal api with Vite + Typescript + React'}/>
             <CerealList/>
         </div>
     )
