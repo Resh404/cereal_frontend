@@ -1,7 +1,10 @@
 import useFetchCereals from "../hooks/CerealHooks.ts";
 import ApiStatus from "../apiStatus.tsx";
+import {useNavigate} from "react-router-dom";
+import {Cereal} from "../types/Cereal.ts";
 
 const CerealList = () => {
+    const nav = useNavigate();
     const {data, status, isSuccess} = useFetchCereals()
 
     if (!isSuccess)
@@ -35,8 +38,8 @@ const CerealList = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {data && data.map((cereal) => (
-                    <tr key={cereal.name}>
+                {data && data.map((cereal: Cereal) => (
+                    <tr key={cereal.id} onClick={() => nav(`/cereal/${cereal.id}`)}>
                         <td>{cereal.name}</td>
                         <td>{cereal.manufacturer}</td>
                         <td>{cereal.type}</td>
