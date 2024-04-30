@@ -1,5 +1,5 @@
 export type Cereal = {
-    id: number,
+    id?: number,
     name: string,
     manufacturer: string,
     type: string,

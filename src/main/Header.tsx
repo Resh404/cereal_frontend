@@ -32,4 +32,4 @@ const Header = ({subtitle}: Args) => {
     )
 }
 
-export default Header
+    export default Header

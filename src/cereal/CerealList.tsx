@@ -1,6 +1,6 @@
 import useFetchCereals from "../hooks/CerealHooks.ts";
 import ApiStatus from "../apiStatus.tsx";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {Cereal} from "../types/Cereal.ts";
 
 const CerealList = () => {
@@ -60,10 +60,13 @@ const CerealList = () => {
                 ))}
                 </tbody>
             </table>
+            <Link className={"btn btn-primary"} to={"/cereal/add"}>
+                Add
+            </Link>
         </div>)
 }
 
-export default CerealList
+    export default CerealList
 
 /* const [cereals, setCereals] = useState<Cereal[]>([])
 

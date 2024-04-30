@@ -51,7 +51,7 @@ const useUpdateCereal = () => {
     const queryClient = useQueryClient();
     return useMutation<AxiosResponse, AxiosError, Cereal>({
         mutationFn: async (cereal: Cereal) =>
-            axios.put(`${config.baseApiUrl}/api/Cereal/update`, cereal),
+            axios.put(`${config.baseApiUrl}/api/Cereal/update/${cereal.id}`, cereal),
         onSuccess: (_, cereal) => {
             queryClient.invalidateQueries({
                 queryKey: ["cereals"],
@@ -66,7 +66,7 @@ const useDeleteCereal = () => {
     const queryClient = useQueryClient();
     return useMutation<AxiosResponse, AxiosError, Cereal>({
         mutationFn: async (cereal: Cereal) =>
-            axios.put(`${config.baseApiUrl}/api/Cereal/delete/${cereal.id}`, cereal),
+            axios.delete(`${config.baseApiUrl}/api/Cereal/delete/${cereal.id}`),
         onSuccess: () => {
             queryClient.invalidateQueries({
                 queryKey: ["cereals"],
